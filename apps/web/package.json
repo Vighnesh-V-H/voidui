@@ -11,10 +11,18 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.6",
+    "@voidui/ui": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.509.0",
     "next": "^15.3.0",
+    "next-themes": "^0.4.6",
+    "postcss": "^8.5.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.1.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
