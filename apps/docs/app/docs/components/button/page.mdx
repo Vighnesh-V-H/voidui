@@ -1,0 +1,157 @@
+# Button
+
+A button component that follows the WAI-ARIA button pattern, with support for different variants, sizes, and states.
+
+## Import
+
+```tsx
+import { Button } from '@voidui/react'
+```
+
+## Usage
+
+### Basic Button
+
+```tsx
+<Button>Click me</Button>
+```
+
+### Button Variants
+
+```tsx
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+<Button variant="destructive">Destructive</Button>
+```
+
+### Button Sizes
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+```
+
+### With Icon
+
+```tsx
+import { ArrowRight } from 'lucide-react'
+
+<Button>
+  Next
+  <ArrowRight className="ml-2 h-4 w-4" />
+</Button>
+```
+
+### Loading State
+
+```tsx
+<Button isLoading>Loading</Button>
+<Button isLoading loadingText="Saving...">
+  Save Changes
+</Button>
+```
+
+### Disabled State
+
+```tsx
+<Button disabled>Disabled</Button>
+<Button disabled variant="secondary">
+  Disabled
+</Button>
+```
+
+## Props
+
+The Button component extends the HTML button element props with the following additional properties:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ghost' \| 'link' \| 'destructive'` | `'primary'` | The visual style of the button |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | The size of the button |
+| `isLoading` | `boolean` | `false` | Whether the button is in a loading state |
+| `loadingText` | `string` | - | Text to show when the button is loading |
+| `leftIcon` | `ReactNode` | - | Icon to show before the button text |
+| `rightIcon` | `ReactNode` | - | Icon to show after the button text |
+| `fullWidth` | `boolean` | `false` | Whether the button should take up the full width of its container |
+
+## Accessibility
+
+- The Button component uses the native `<button>` element
+- Supports keyboard navigation and activation with Enter or Space
+- When `isLoading` is true, the button is automatically disabled and announces its loading state to screen readers
+- Icons are properly labeled for screen readers
+
+## Examples
+
+### Form Submit Button
+
+```tsx
+<Button
+  variant="primary"
+  isLoading={isSubmitting}
+  loadingText="Saving..."
+  type="submit"
+>
+  Save Changes
+</Button>
+```
+
+### Navigation Button
+
+```tsx
+import { ArrowLeft } from 'lucide-react'
+
+<Button
+  variant="ghost"
+  onClick={() => router.back()}
+  leftIcon={<ArrowLeft className="h-4 w-4" />}
+>
+  Go Back
+</Button>
+```
+
+### Destructive Action
+
+```tsx
+import { Trash } from 'lucide-react'
+
+<Button
+  variant="destructive"
+  onClick={handleDelete}
+  leftIcon={<Trash className="h-4 w-4" />}
+>
+  Delete Account
+</Button>
+```
+
+## Customization
+
+### Using Tailwind CSS Classes
+
+```tsx
+<Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+  Custom Gradient
+</Button>
+```
+
+### Extending the Theme
+
+You can customize the default styles in your `tailwind.config.js`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#4F46E5',
+          hover: '#4338CA',
+        },
+      },
+    },
+  },
+} 

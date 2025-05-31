@@ -1,0 +1,104 @@
+# Components
+
+VoidUI provides a comprehensive set of components to help you build beautiful user interfaces. Each component is designed with accessibility and customization in mind.
+
+## Core Components
+
+### Buttons
+
+Buttons are used to trigger actions or navigate between pages.
+
+```tsx
+import { Button } from '@voidui/react'
+
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+<Button variant="outline">Outline Button</Button>
+<Button variant="ghost">Ghost Button</Button>
+```
+
+[Learn more about Buttons →](/docs/components/button)
+
+### Cards
+
+Cards are used to group related content and actions.
+
+```tsx
+import { Card } from '@voidui/react'
+
+<Card>
+  <Card.Header>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Description>Optional card description</Card.Description>
+  </Card.Header>
+  <Card.Content>
+    Card content goes here
+  </Card.Content>
+  <Card.Footer>
+    <Button>Action</Button>
+  </Card.Footer>
+</Card>
+```
+
+[Learn more about Cards →](/docs/components/card)
+
+### Input
+
+Input components for collecting user data.
+
+```tsx
+import { Input } from '@voidui/react'
+
+<Input placeholder="Enter your name" />
+<Input type="email" placeholder="Enter your email" />
+<Input type="password" placeholder="Enter your password" />
+```
+
+[Learn more about Input →](/docs/components/input)
+
+## Form Components
+
+- [Checkbox](/docs/components/checkbox)
+- [Radio](/docs/components/radio)
+- [Select](/docs/components/select)
+- [Textarea](/docs/components/textarea)
+- [Switch](/docs/components/switch)
+
+## Navigation
+
+- [Tabs](/docs/components/tabs)
+- [Navigation Menu](/docs/components/nav-menu)
+- [Breadcrumb](/docs/components/breadcrumb)
+- [Pagination](/docs/components/pagination)
+
+## Feedback
+
+- [Alert](/docs/components/alert)
+- [Toast](/docs/components/toast)
+- [Progress](/docs/components/progress)
+- [Spinner](/docs/components/spinner)
+
+## Overlay
+
+- [Dialog](/docs/components/dialog)
+- [Drawer](/docs/components/drawer)
+- [Popover](/docs/components/popover)
+- [Tooltip](/docs/components/tooltip)
+
+## Data Display
+
+- [Table](/docs/components/table)
+- [Avatar](/docs/components/avatar)
+- [Badge](/docs/components/badge)
+- [Calendar](/docs/components/calendar)
+
+## Layout
+
+- [Accordion](/docs/components/accordion)
+- [Collapsible](/docs/components/collapsible)
+- [Separator](/docs/components/separator)
+- [Sheet](/docs/components/sheet)
+
+## Customization
+
+All components can be customized using Tailwind CSS classes or by extending the default theme. See our [Theming](/docs/theming) guide for more information. 

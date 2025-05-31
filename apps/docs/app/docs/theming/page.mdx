@@ -1,0 +1,198 @@
+# Theming
+
+VoidUI components are built with customization in mind. You can customize the look and feel of components using Tailwind CSS classes, CSS variables, or by extending the default theme.
+
+## CSS Variables
+
+VoidUI uses CSS variables for colors, spacing, and other design tokens. These variables can be customized to match your brand.
+
+```css
+:root {
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+}
+```
+
+## Tailwind CSS Configuration
+
+### Extending the Theme
+
+You can extend or override the default theme in your `tailwind.config.js`:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: "#0070f3",
+          dark: "#0761d1",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+}
+```
+
+## Component Customization
+
+### Using className
+
+Every component accepts a `className` prop that you can use to add custom styles:
+
+```tsx
+<Button className="bg-brand hover:bg-brand-dark">
+  Custom Button
+</Button>
+```
+
+### Using Variants
+
+Many components support variants that can be customized:
+
+```tsx
+<Button variant="custom">Custom Variant</Button>
+```
+
+To add a custom variant, modify the component's styles:
+
+```tsx
+const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
+  {
+    variants: {
+      variant: {
+        custom: "bg-brand text-white hover:bg-brand-dark",
+      },
+      size: {
+        default: "h-10 py-2 px-4",
+        sm: "h-9 px-3",
+        lg: "h-11 px-8",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+```
+
+## Dark Mode
+
+VoidUI supports dark mode out of the box. To enable dark mode:
+
+1. Add the `darkMode` class to your root element:
+
+```tsx
+<html className="dark">
+```
+
+2. Or use a theme provider:
+
+```tsx
+import { ThemeProvider } from "next-themes"
+
+function App({ children }) {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system">
+      {children}
+    </ThemeProvider>
+  )
+}
+```
+
+## Examples
+
+### Custom Color Scheme
+
+```css
+:root {
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 100%;
+}
+```
+
+### Custom Component Style
+
+```tsx
+<Card className="bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+  <Card.Header>
+    <Card.Title>Custom Card</Card.Title>
+  </Card.Header>
+  <Card.Content>
+    This card has a custom gradient background.
+  </Card.Content>
+</Card>
+```
+
+### Custom Animation
+
+```tsx
+<Button className="transition-all hover:scale-105 active:scale-95">
+  Animated Button
+</Button>
+```
+
+## Best Practices
+
+1. Use CSS variables for global theme values
+2. Use Tailwind CSS classes for component-specific styles
+3. Create reusable variants for common style patterns
+4. Keep dark mode in mind when customizing components
+5. Use the `className` prop for one-off customizations
+6. Extend the theme for organization-wide customizations 
