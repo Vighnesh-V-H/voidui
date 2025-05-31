@@ -24,11 +24,18 @@ interface ChatFormProps {
   // Visual & behavior options
   showModels?: boolean;
 
+  /**
+   * Enables or disables the ability to attach files in the chat form.
+   * If true, users can upload attachments. If false, the attachment UI is hidden.
+   */
   enableAttachments?: boolean;
   enableEmoji?: boolean;
   enableVoice?: boolean;
   enableImages?: boolean;
 
+  /**
+   * change variants
+   */
   variant?: "default" | "minimal" | "bordered" | "floating";
   size?: "sm" | "md" | "lg";
   position?: "center" | "full" | "responsive";
