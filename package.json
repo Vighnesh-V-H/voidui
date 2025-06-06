@@ -1,0 +1,40 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "dev:content": "contentlayer build --watch",
+    "build": "next build && contentlayer build",
+    "postinstall": "contentlayer build",
+    "start": "next start",
+    "lint": "next lint --max-warnings 0",
+    "check-types": "tsc --noEmit",
+    "contentlayer": "contentlayer"
+  },
+  "dependencies": {
+    "@repo/ui": "*",
+    "@tailwindcss/typography": "^0.5.12",
+    "contentlayer2": "^0.5.8",
+    "gray-matter": "^4.0.3",
+    "mdx-bundler": "^10.1.2",
+    "next": "^15.3.0",
+    "next-contentlayer2": "^0.5.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.13.6",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "eslint": "^9.28.0",
+    "typescript": "5.8.2"
+  }
+}
